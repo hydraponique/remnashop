@@ -17,3 +17,8 @@ ifndef rev
 	$(error rev is undefined. Use: make downgrade rev=<revision>)
 endif
 	alembic -c $(ALEMBIC_INI) downgrade $(rev)
+
+.PHONY: app-run
+app-run:
+	@docker compose up -d --build
+	@docker compose logs -f

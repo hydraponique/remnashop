@@ -1,7 +1,7 @@
 import logging
 from typing import Any, Awaitable, Callable, Optional, Union
 
-from aiogram.types import CallbackQuery, Message
+from aiogram.types import CallbackQuery, ErrorEvent, Message
 from fluent.runtime import FluentLocalization
 
 from app.bot.widgets.i18n_format import I18N_FORMAT_KEY
@@ -15,7 +15,11 @@ logger = logging.getLogger(__name__)
 
 
 class I18nMiddleware(EventTypedMiddleware):
-    __event_types__ = [MiddlewareEventType.MESSAGE, MiddlewareEventType.CALLBACK_QUERY]
+    __event_types__ = [
+        MiddlewareEventType.MESSAGE,
+        MiddlewareEventType.CALLBACK_QUERY,
+        MiddlewareEventType.ERROR,
+    ]
 
     def __init__(
         self,
@@ -29,12 +33,14 @@ class I18nMiddleware(EventTypedMiddleware):
     async def __call__(
         self,
         handler: Callable[[Union[Message, CallbackQuery], dict[str, Any]], Awaitable[Any]],
-        event: Union[Message, CallbackQuery],
+        event: Union[Message, CallbackQuery, ErrorEvent],
         data: dict[str, Any],
     ) -> Any:
         user: Optional[User] = data.get(USER_KEY)
 
         if user is None:
+            locale = self.locales[self.default_locale]
+            data[I18N_FORMAT_KEY] = locale.format_value
             return await handler(event, data)
 
         lang = user.language

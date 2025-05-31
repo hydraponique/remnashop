@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Awaitable, Callable, Optional
+from typing import TYPE_CHECKING, Any, Awaitable, Callable, Optional, Union
 
-from aiogram.types import Message
+from aiogram.types import CallbackQuery, ErrorEvent, Message
 from aiogram.types import User as AiogramUser
 from aiogram_i18n import I18nMiddleware
 
 from app.core.config import AppConfig
 from app.core.constants import (
+    CONFIG_KEY,
     I18N_MIDDLEWARE_KEY,
     SESSION_POOL_KEY,
     USER_KEY,
@@ -26,7 +27,11 @@ logger = logging.getLogger(__name__)
 
 
 class UserMiddleware(EventTypedMiddleware):
-    __event_types__ = [MiddlewareEventType.MESSAGE]
+    __event_types__ = [
+        MiddlewareEventType.MESSAGE,
+        MiddlewareEventType.CALLBACK_QUERY,
+        MiddlewareEventType.ERROR,
+    ]
 
     def __init__(self) -> None:
         logger.debug("User Middleware initialized")
@@ -34,10 +39,14 @@ class UserMiddleware(EventTypedMiddleware):
     async def __call__(
         self,
         handler: Callable[[Message, dict[str, Any]], Awaitable[Any]],
-        event: Message,
+        event: Union[Message, CallbackQuery, ErrorEvent],
         data: dict[str, Any],
     ) -> Optional[Any]:
-        aiogram_user: Optional[AiogramUser] = event.from_user
+        aiogram_user: Optional[AiogramUser] = (
+            event.from_user
+            if isinstance(event, (Message, CallbackQuery))
+            else event.update.message.from_user
+        )
 
         if aiogram_user is None or aiogram_user.is_bot:
             return await handler(event, data)
@@ -47,7 +56,7 @@ class UserMiddleware(EventTypedMiddleware):
 
         if user is None:
             i18n: I18nMiddleware = data[I18N_MIDDLEWARE_KEY]
-            config: AppConfig = data["config"]
+            config: AppConfig = data[CONFIG_KEY]
             is_dev = True if config.bot.dev_id == aiogram_user.id else False
             user = await user_service.create(aiogram_user=aiogram_user, i18n=i18n, is_dev=is_dev)
 

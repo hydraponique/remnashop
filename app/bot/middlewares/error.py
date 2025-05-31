@@ -38,12 +38,13 @@ class ErrorMiddleware(EventTypedMiddleware):
 
         if isinstance(event.exception, TelegramForbiddenError):
             logger.info(f"[User:{aiogram_user.id} ({aiogram_user.full_name})] Blocked the bot")
+            # TODO: handle user.is_bot_blocked
         elif isinstance(event.exception, TelegramBadRequest):
             logger.warning(f"[User:{aiogram_user.id} ({aiogram_user.full_name})] Bad request")
         elif isinstance(event.exception, TelegramNotFound):
             logger.warning(f"[User:{aiogram_user.id} ({aiogram_user.full_name})] Not found")
-
-        logger.exception(f"Update: {event.update}\nException: {event.exception}")
+        else:
+            logger.exception(f"Update: {event.update}\nException: {event.exception}")
 
         try:
             text = Text(

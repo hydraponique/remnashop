@@ -1,9 +1,8 @@
-from . import main_menu, profile
+from . import menu
 
 routers = [
-    main_menu.router,
-    main_menu.dialog,
-    profile.dialog,
+    menu.router,
+    menu.dialog,
 ]
 
 __all__ = [

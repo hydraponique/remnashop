@@ -1,3 +1,5 @@
+import re
+from re import Match
 from typing import Any, Protocol
 
 from aiogram_dialog.api.protocols import DialogManager
@@ -10,6 +12,20 @@ from app.core.constants import I18N_FORMAT_KEY
 class Values(Protocol):
     def __getitem__(self, item: Any) -> Any:
         raise NotImplementedError
+
+
+def collapse_closing_tags(text: str) -> str:
+    def replacer(match: Match) -> str:
+        tag = match.group(1)
+        content = match.group(2).rstrip()
+        return f"<{tag}>{content}</{tag}>"
+
+    return re.sub(
+        r"<(\w+)>[\n\r]+(.*?)[\n\r]+</\1>",
+        replacer,
+        text,
+        flags=re.DOTALL,
+    )
 
 
 def default_format_text(text: str, data: Values) -> str:
@@ -26,4 +42,4 @@ class I18NFormat(Text):
             I18N_FORMAT_KEY,
             default_format_text,
         )
-        return format_text(self.text, data)
+        return collapse_closing_tags(format_text(self.text, data))
