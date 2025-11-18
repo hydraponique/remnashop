@@ -10,6 +10,7 @@ from fastapi import Request
 from httpx import AsyncClient, HTTPStatusError, URL
 from loguru import logger
 
+from src.core.config import AppConfig
 from src.core.enums import TransactionStatus
 from src.infrastructure.database.models.dto import (
     PaymentGatewayDto,
@@ -18,6 +19,7 @@ from src.infrastructure.database.models.dto import (
 )
 
 from .base import BasePaymentGateway
+
 
 class YoomoneyGateway(BasePaymentGateway):
     _client: AsyncClient
@@ -40,8 +42,8 @@ class YoomoneyGateway(BasePaymentGateway):
         "2a02:5180:0:2669::/64",
     ]
 
-    def __init__(self, gateway: PaymentGatewayDto, bot: Bot) -> None:
-        super().__init__(gateway, bot)
+    def __init__(self, gateway: PaymentGatewayDto, bot: Bot, config: AppConfig) -> None:
+        super().__init__(gateway, bot, config)
 
         if not isinstance(self.gateway.settings, YoomoneyGatewaySettingsDto):
             raise TypeError("YoomoneyGateway requires YoomoneyGatewaySettingsDto")
