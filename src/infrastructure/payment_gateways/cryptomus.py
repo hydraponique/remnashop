@@ -138,7 +138,7 @@ class CryptomusGateway(BasePaymentGateway):
         if not sign:
             raise ValueError("Missing signature")
 
-        json_data = json.dumps(data)
+        json_data = json.dumps(data, separators=(",", ":"))
         hash_value = self._generate_signature(json_data)
 
         if not compare_digest(hash_value, sign):
