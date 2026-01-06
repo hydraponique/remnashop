@@ -91,7 +91,7 @@ frg-subscription =
     <b>До окончания подписки</b>: { $expire_time }
 
     <blockquote>
-    • <b>Трафик</b>: { $traffic_used } / { $traffic_limit }
+    • <b>Лимит трафика</b>: { $traffic_limit }
     • <b>Лимит устройств</b>: { $device_limit }
     </blockquote>
 
