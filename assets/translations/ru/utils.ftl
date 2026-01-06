@@ -16,18 +16,18 @@ unit-unlimited = { $value ->
 
 # Other
 payment-invoice-description = { purchase-type } подписки { $name } на { $duration }
-contact-support-help = Здравствуйте! Мне нужна помощь.
-contact-support-paysupport = Здравствуйте! Я бы хотел запросить возврат средств.
-contact-support-withdraw-points = Здравствуйте! Я бы хотел запросить обмен баллов.
+contact-support-help = Здравствуйте! Мой ID: { $user_id }. Мне нужна помощь.
+contact-support-withdraw-points = Здравствуйте! Мой ID: { $user_id }. Я бы хотел запросить обмен баллов.
 cmd-start = Перезапустить бота
-cmd-paysupport = Возврат средств
 cmd-help = Помощь
 
 referral-invite-message =
     { space }
-    🚀 Привет! Хочешь стабильный и быстрый VPN?  
-    
-    ↘️ ЖМИ СЮДА И ПОПРОБУЙ БЕСПЛАТНО!
+    🚀 Привет! <b>Хочешь стабильный, надежный и быстрый VPN?</b>
+	
+    <u><b>⚡️ РоскомVPN</b> - Попробуй настоящую Цифровую Свободу!</u>
+	
+    ↘️ ЖМИ СЮДА И ПОПРОБУЙ БЕСПЛАТНО! 🎁
     { $url }
 
 
@@ -40,7 +40,7 @@ hdr-subscription = { $is_trial ->
     *[0] <b>💳 Подписка:</b>
     }
 
-hdr-plan = <b>📦 План:</b>
+hdr-plan = <b>📦 Тариф:</b>
 hdr-payment = <b>💰 Платеж:</b>
 hdr-error = <b>⚠️ Ошибка:</b>
 hdr-node = <b>🖥 Нода:</b>
@@ -49,11 +49,11 @@ hdr-hwid = <b>📱 Устройство:</b>
 # Fragments
 frg-user =
     <blockquote>
-    • <b>ID</b>: <code>{ $user_id }</code>
-    • <b>Имя</b>: { $user_name }
+    • <b>Ваш ID</b>: <code>{ $user_id }</code>
+
     { $personal_discount ->
     [0] { empty }
-    *[HAS] • <b>Ваша скидка</b>: { $personal_discount }%
+    *[HAS] 🎁 <b>Ваша персональная скидка</b>: { $personal_discount }%
     }
     </blockquote>
 
@@ -88,10 +88,11 @@ frg-user-discounts-details =
     </blockquote>
 
 frg-subscription =
+    <b>До окончания подписки</b>: { $expire_time }
+	
     <blockquote>
-    • <b>Лимит трафика</b>: { $traffic_limit }
+    • <b>Трафик</b>: { $traffic_used } / { $traffic_limit }
     • <b>Лимит устройств</b>: { $device_limit }
-    • <b>Осталось</b>: { $expire_time }
     </blockquote>
 
 frg-subscription-details =
@@ -117,7 +118,7 @@ frg-payment-amount = { $final_amount }{ $currency } { $discount_percent ->
 
 frg-plan-snapshot =
     <blockquote>
-    • <b>План</b>: <code>{ $plan_name }</code>
+    • <b>Тариф</b>: <code>{ $plan_name }</code>
     • <b>Тип</b>: { plan-type }
     • <b>Лимит трафика</b>: { $plan_traffic_limit }
     • <b>Лимит устройств</b>: { $plan_device_limit }
@@ -126,7 +127,7 @@ frg-plan-snapshot =
 
 frg-plan-snapshot-comparison =
     <blockquote>
-    • <b>План</b>: <code>{ $previous_plan_name }</code> -> <code>{ $plan_name }</code>
+    • <b>Тариф</b>: <code>{ $previous_plan_name }</code> -> <code>{ $plan_name }</code>
     • <b>Тип</b>: { $previous_plan_type } -> { plan-type }
     • <b>Лимит трафика</b>: { $previous_plan_traffic_limit } -> { $plan_traffic_limit }
     • <b>Лимит устройств</b>: { $previous_plan_device_limit } -> { $plan_device_limit }
@@ -284,7 +285,7 @@ access-mode = { $access_mode ->
 
 audience-type = { $audience_type ->
     [ALL] Всем
-    [PLAN] По плану
+    [PLAN] По тарифу
     [SUBSCRIBED] С подпиской
     [UNSUBSCRIBED] Без подписки
     [EXPIRED] Просроченным

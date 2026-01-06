@@ -122,17 +122,6 @@ class NotificationService(BaseService):
 
         return bool(await self._send_message(user=dev, payload=payload))
 
-    async def remnashop_notify(self) -> bool:
-        dev = await self.user_service.get(self.config.bot.dev_id) or self._get_temp_dev()
-        payload = MessagePayload(
-            i18n_key="ntf-remnashop-info",
-            i18n_kwargs={"version": __version__, "repository": REPOSITORY},
-            reply_markup=get_remnashop_keyboard(),
-            auto_delete_after=None,
-            add_close_button=True,
-            message_effect=MessageEffect.LOVE,
-        )
-        return bool(await self._send_message(user=dev, payload=payload))
 
     async def error_notify(
         self,

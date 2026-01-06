@@ -18,29 +18,6 @@ router = Router(name=__name__)
 
 
 @inject
-@router.message(FilterCommand(Command.PAYSUPPORT.value.command))
-async def on_paysupport_command(
-    message: Message,
-    user: UserDto,
-    config: AppConfig,
-    i18n: FromDishka[TranslatorRunner],
-    notification_service: FromDishka[NotificationService],
-) -> None:
-    logger.info(f"{log(user)} Call 'paysupport' command")
-
-    text = i18n.get("contact-support-paysupport")
-    support_username = config.bot.support_username.get_secret_value()
-
-    await notification_service.notify_user(
-        user=user,
-        payload=MessagePayload.not_deleted(
-            i18n_key="ntf-command-paysupport",
-            reply_markup=get_contact_support_keyboard(support_username, text),
-        ),
-    )
-
-
-@inject
 @router.message(FilterCommand(Command.HELP.value.command))
 async def on_help_command(
     message: Message,
