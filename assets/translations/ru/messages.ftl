@@ -140,10 +140,10 @@ msg-invite-reward = { $value }{ $reward_strategy_type ->
 
 
 # Dashboard
-msg-dashboard-main = <b>🛠 Панель управления</b>
-msg-users-main = <b>👥 Пользователи</b>
-msg-broadcast-main = <b>📢 Рассылка</b>
-msg-statistics-main = { $statistics }
+msg-dashboard-main = <b>🛠 Панель управления</b><br>
+msg-users-main = <b>👥 Пользователи</b><br>
+msg-broadcast-main = <b>📢 Рассылка</b><br>
+msg-statistics-main = { $statistics }<br>
     
 msg-statistics-users =
     <b>👥 Статистика по пользователям</b>
@@ -667,12 +667,12 @@ msg-remnawave-inbounds =
 
 
 # RemnaShop
-msg-remnashop-main = <b>🛍 RemnaShop v{ $version }</b>
-msg-admins-main = <b>👮‍♂️ Администраторы</b>
+msg-remnashop-main = <b>🛍 RemnaShop v{ $version }</b><br>
+msg-admins-main = <b>👮‍♂️ Администраторы</b><br>
 
 
 # Gateways
-msg-gateways-main = <b>🌐 Платежные системы</b>
+msg-gateways-main = <b>🌐 Платежные системы</b><br>
 msg-gateways-settings = <b>🌐 Конфигурация { gateway-type }</b>
 msg-gateways-default-currency = <b>💸 Валюта по умолчанию</b>
 msg-gateways-placement = <b>🔢 Изменить позиционирование</b>
@@ -766,7 +766,7 @@ msg-referral-reward =
     } (в формате: уровень=значение)
 
 # Plans
-msg-plans-main = <b>📦 Планы</b>
+msg-plans-main = <b>📦 Тарифы</b><br>
 
 msg-plan-configurator =
     <b>📦 Конфигуратор плана</b>
@@ -909,13 +909,13 @@ msg-plan-external-squads =
 
 
 # Notifications
-msg-notifications-main = <b>🔔 Настройка уведомлений</b>
+msg-notifications-main = <b>🔔 Настройка уведомлений</b><br>
 msg-notifications-user = <b>👥 Пользовательские уведомления</b>
 msg-notifications-system = <b>⚙️ Системные уведомления</b>
 
 
 # Subscription
-msg-subscription-main = <b>💳 Подписка</b>
+msg-subscription-main = <b>💳 Подписка</b><br>
 msg-subscription-plans = <b>📦 Выберите план</b>
 msg-subscription-new-success = Чтобы начать пользоваться нашим сервисом, нажмите кнопку <code>`{ btn-subscription-connect }`</code> и следуйте инструкциям!
 msg-subscription-renew-success = Ваша подписка продлена на { $added_duration }.
@@ -1051,7 +1051,7 @@ msg-importer-sync-completed =
 
 
 # Promocodes
-msg-promocodes-main = <b>🎟 Промокоды</b>
+msg-promocodes-main = <b>🎟 Промокоды</b><br>
 msg-promocode-configurator =
     <b>🎟 Конфигуратор промокода</b>
 
