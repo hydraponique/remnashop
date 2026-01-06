@@ -16,8 +16,8 @@ unit-unlimited = { $value ->
 
 # Other
 payment-invoice-description = { purchase-type } подписки { $name } на { $duration }
-contact-support-help = Здравствуйте! Мой ID: { $user_id }. Мне нужна помощь.
-contact-support-withdraw-points = Здравствуйте! Мой ID: { $user_id }. Я бы хотел запросить обмен баллов.
+contact-support-help = Здравствуйте! Мне нужна помощь.
+contact-support-withdraw-points = Здравствуйте! Я бы хотел запросить обмен баллов.
 cmd-start = Перезапустить бота
 cmd-help = Помощь
 

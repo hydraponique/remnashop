@@ -38,7 +38,6 @@ async def menu_getter(
         has_used_trial = await subscription_service.has_used_trial(user.telegram_id)
         support_username = config.bot.support_username.get_secret_value()
         ref_link = await referral_service.get_ref_link(user.referral_code)
-        user_id = str(user.telegram_id)
         support_link = format_username_to_url(support_username, i18n.get("contact-support-help"))
 
         base_data = {
