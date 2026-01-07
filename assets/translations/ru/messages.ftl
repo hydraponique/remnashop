@@ -5,6 +5,7 @@ msg-main-menu =
     { frg-user }
 
     { hdr-subscription }
+
     { $status ->
     [ACTIVE]
     { frg-subscription }
@@ -136,10 +137,10 @@ msg-invite-reward = { $value }{ $reward_strategy_type ->
 
 
 # Dashboard
-msg-dashboard-main = <b>🛠 Панель управления</b>\n
-msg-users-main = <b>👥 Пользователи</b>\n
-msg-broadcast-main = <b>📢 Рассылка</b>\n
-msg-statistics-main = { $statistics }\n
+msg-dashboard-main = <b>🛠 Панель управления</b>
+msg-users-main = <b>👥 Пользователи</b>
+msg-broadcast-main = <b>📢 Рассылка</b>
+msg-statistics-main = { $statistics }
     
 msg-statistics-users =
     <b>👥 Статистика по пользователям</b>
@@ -663,12 +664,12 @@ msg-remnawave-inbounds =
 
 
 # RemnaShop
-msg-remnashop-main = <b>🛍 RemnaShop v{ $version }</b>\n
-msg-admins-main = <b>👮‍♂️ Администраторы</b>\n
+msg-remnashop-main = <b>🛍 RemnaShop v{ $version }</b>
+msg-admins-main = <b>👮‍♂️ Администраторы</b>
 
 
 # Gateways
-msg-gateways-main = <b>🌐 Платежные системы</b>\n
+msg-gateways-main = <b>🌐 Платежные системы</b>
 msg-gateways-settings = <b>🌐 Конфигурация { gateway-type }</b>
 msg-gateways-default-currency = <b>💸 Валюта по умолчанию</b>
 msg-gateways-placement = <b>🔢 Изменить позиционирование</b>
@@ -762,7 +763,7 @@ msg-referral-reward =
     } (в формате: уровень=значение)
 
 # Plans
-msg-plans-main = <b>📦 Тарифы</b>\n
+msg-plans-main = <b>📦 Тарифы</b>
 
 msg-plan-configurator =
     <b>📦 Конфигуратор плана</b>
@@ -905,13 +906,13 @@ msg-plan-external-squads =
 
 
 # Notifications
-msg-notifications-main = <b>🔔 Настройка уведомлений</b>\n
+msg-notifications-main = <b>🔔 Настройка уведомлений</b>
 msg-notifications-user = <b>👥 Пользовательские уведомления</b>
 msg-notifications-system = <b>⚙️ Системные уведомления</b>
 
 
 # Subscription
-msg-subscription-main = <b>💳 Подписка</b>\n
+msg-subscription-main = <b>💳 Подписка</b>
 msg-subscription-plans = <b>📦 Выберите план</b>
 msg-subscription-new-success = Чтобы начать пользоваться нашим сервисом, нажмите кнопку <code>`{ btn-subscription-connect }`</code> и следуйте инструкциям!
 msg-subscription-renew-success = Ваша подписка продлена на { $added_duration }.
@@ -1047,7 +1048,7 @@ msg-importer-sync-completed =
 
 
 # Promocodes
-msg-promocodes-main = <b>🎟 Промокоды</b>\n
+msg-promocodes-main = <b>🎟 Промокоды</b>
 msg-promocode-configurator =
     <b>🎟 Конфигуратор промокода</b>
 

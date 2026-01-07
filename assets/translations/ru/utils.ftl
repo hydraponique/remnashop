@@ -34,12 +34,12 @@ referral-invite-message =
 
 
 # Headers
-hdr-user = <b>👤 Пользователь:</b>\n
-hdr-user-profile = <b>👤 Профиль:</b>\n
+hdr-user = <b>👤 Пользователь:</b>
+hdr-user-profile = <b>👤 Профиль:</b>
 
 hdr-subscription = { $is_trial ->
-    [1] <b>🎁 Пробная подписка:</b>\n
-    *[0] <b>💳 Подписка:</b>\n
+    [1] <b>🎁 Пробная подписка:</b>
+    *[0] <b>💳 Подписка:</b>
     }
 
 hdr-plan = <b>📦 Тариф:</b>
@@ -50,17 +50,15 @@ hdr-hwid = <b>📱 Устройство:</b>
 
 # Fragments
 frg-user =
-    <blockquote>
     <b>👋 Привет, { $user_name }!</b>
 
+    <blockquote>
     { $personal_discount ->
     [0] { empty }
-    *[HAS] ❤️ <b>Ваша персональная скидка</b>: { $personal_discount }%\n
+    *[HAS] ❤️ <b>Ваша персональная скидка</b>: { $personal_discount }%
     }
-    • <b>Никнейм</b>: { $username -> 
-        [0] <a href="tg://user?id={ $user_id }">{ $user_name }</a>
-        *[HAS] <a href="tg://user?id={ $user_id }">@{ $username }</a>
-    }
+
+    • <b>Имя</b>: <a href="tg://user?id={ $user_id }">{ $user_name }</a>
     • <b>ID</b>: <code>{ $user_id }</code>
     </blockquote>
 
