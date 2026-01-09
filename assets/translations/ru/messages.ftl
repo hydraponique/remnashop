@@ -1,7 +1,5 @@
 # Menu
 msg-main-menu =
-    ⚡️ <u><b>РоскомVPN</b></u> - Настоящая Цифровая Свобода!
-
     { frg-user }
 
     { hdr-subscription }
