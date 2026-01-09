@@ -52,13 +52,12 @@ frg-user =
     <b>👋 Привет, { $user_name }!</b>
 
     <blockquote>
+    • <b>Имя</b>: <a href="tg://user?id={ $user_id }">{ $user_name }</a>
+    • <b>ID</b>: <code>{ $user_id }</code>
     { $personal_discount ->
     [0] { empty }
     *[HAS] ❤️ <b>Ваша персональная скидка</b>: { $personal_discount }%
     }
-
-    • <b>Имя</b>: <a href="tg://user?id={ $user_id }">{ $user_name }</a>
-    • <b>ID</b>: <code>{ $user_id }</code>
     </blockquote>
 
 frg-user-info =
