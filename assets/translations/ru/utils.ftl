@@ -57,7 +57,7 @@ frg-user =
     *[HAS] ❤️ <b>Ваша персональная скидка</b>: { $personal_discount }%
     }
 	
-    • <b>Имя</b>: <a href="tg://user?id={ $user_id }">{ $user_name }</a>
+    • <b>Имя</b>: { $user_name }
     • <b>ID</b>: <code>{ $user_id }</code>
     </blockquote>
 
