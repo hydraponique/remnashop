@@ -52,13 +52,12 @@ frg-user =
     <b>👋 Привет, { $user_name }!</b>
 
     <blockquote>
+    • <b>Имя</b>: { $user_name }
+    • <b>ID</b>: <code>{ $user_id }</code>
     { $personal_discount ->
     [0] { empty }
     *[HAS] ❤️ <b>Ваша персональная скидка</b>: { $personal_discount }%
     }
-	
-    • <b>Имя</b>: { $user_name }
-    • <b>ID</b>: <code>{ $user_id }</code>
     </blockquote>
 
 frg-user-info =
@@ -93,8 +92,7 @@ frg-user-discounts-details =
 
 frg-subscription =
     <blockquote>
-    { $expire_time }
-
+    • <b>{ $expire_time }</b>
     • <b>Лимит трафика</b>: { $traffic_limit }
     • <b>Лимит устройств</b>: { $device_limit }
     </blockquote>
