@@ -3,7 +3,6 @@ msg-main-menu =
     { frg-user }
 
     { hdr-subscription }
-
     { $status ->
     [ACTIVE]
     { frg-subscription }

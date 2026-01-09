@@ -38,7 +38,7 @@ btn-menu-connect-not-available =
     } ⚠️
 
 btn-menu-trial = 🎁 ПОПРОБОВАТЬ БЕСПЛАТНО
-btn-menu-devices = 📱 Мои устройства
+btn-menu-devices = 📱 Устройства
 btn-menu-devices-empty = ⚠️ Нет привязанных устройств
 btn-menu-subscription = 💳 Подписка
 btn-menu-invite = 👥 Пригласить
