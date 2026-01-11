@@ -16,7 +16,7 @@ unit-unlimited = { $value ->
 
 # Other
 payment-invoice-description = { purchase-type } подписки { $name } на { $duration }
-contact-support-help = Здравствуйте! Мне нужна помощь.
+contact-support-help = Здравствуйте! Мне нужна помощь с РоскомVPN!
 contact-support-withdraw-points = Здравствуйте! Я бы хотел запросить обмен баллов.
 cmd-start = Перезапустить бота
 cmd-help = Помощь
